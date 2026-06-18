@@ -189,7 +189,7 @@ img {
 /* Home Article List */
 .articles_heading {
   margin-top: 4rem;
-  font-weight: 500;
+  font-weight: 400;
 }
 
 .article-ul {
@@ -252,9 +252,8 @@ img {
 
 
 .article {
-  white-space: pre-wrap;
+  white-space: normal;
 }
-
 
 
 /* Footer */
@@ -262,6 +261,7 @@ img {
   margin: 4rem;
   text-align: center;
 }
+
 
 
 /* Dashboard Admin */
