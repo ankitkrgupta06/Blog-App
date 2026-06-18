@@ -20,7 +20,7 @@ router.get('',async (req,res)=>{
     const nextPage=parseInt(page)+1;
     const hasNextPage=nextPage<=Math.ceil(count/perPage);
 
-    res.render('index',{locals,data,current:page,nextPage:hasNextPage?nextPage:null});
+    res.render('index',{locals,data,current:page,nextPage:hasNextPage?nextPage:null,currentRoute:'/'});
   } catch (error) {
     console.log(error)
   }
@@ -34,7 +34,7 @@ router.get('/post/:id',async(req,res)=>{
       title:data.title,
       description:"This is a blog"
     }
-    res.render('post',{locals,data});
+    res.render('post',{locals,data,currentRoute:`/post/${param}`});
   } catch (error) {
     console.log(error)
   }
@@ -54,7 +54,7 @@ router.post('/search',async (req,res)=>{
         {body:{$regex: new RegExp(searchNoSpecialChar,'i')}}
       ]
     });
-    res.render("search",{locals,data});
+    res.render("search",{locals,data,currentRoute:'/'});
   } catch (error) {
     console.log(error);
   }
@@ -63,7 +63,7 @@ router.post('/search',async (req,res)=>{
 
 
 router.get('/about',(req,res)=>{
-  res.render('about');
+  res.render('about',{currentRoute:'/about'});
 })
 
 
